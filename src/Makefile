@@ -500,7 +500,7 @@ else
 endif
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(TARGET): $(CATFILES) $(addprefix $(OBJDIR)/,$(OBJS))
+$(TARGET): $(OBJDIR) $(DEPDIR) $(BINDIR) $(CATFILES) $(addprefix $(OBJDIR)/,$(OBJS))
 	@echo "  LD $@.debug"
 	@$(CC) $(LDFLAGS) -o $@.debug $(addprefix $(OBJDIR)/,$(OBJS)) $(LDLIBS) -Wl,--cref,-M,-Map=$@.map
 	@echo "  LD $@"
